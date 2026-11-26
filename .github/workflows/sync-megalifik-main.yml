@@ -1,0 +1,26 @@
+name: Sync main to Megalife1111/megalifik
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Push to megalifik production repo
+        env:
+          TOKEN: ${{ secrets.MEGALIFIK_GH_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "::notice::Skipping: add repo secret MEGALIFIK_GH_TOKEN (PAT from Megalife1111 with repo megalifik)."
+            exit 0
+          fi
+          git remote add megalifik "https://x-access-token:${TOKEN}@github.com/Megalife1111/megalifik.git"
+          git push megalifik HEAD:refs/heads/main
