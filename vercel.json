@@ -15,14 +15,14 @@
     { "source": "/motivational-trainer.html", "destination": "/api/index" },
     { "source": "/memory.html", "destination": "/api/index" },
     { "source": "/emotional-intelligence.html", "destination": "/api/index" },
-    { "source": "/api/(.*)", "destination": "/api/index" },
     { "source": "/send_test.php", "destination": "/api/telegram/test" },
     { "source": "/send_homework.php", "destination": "/api/telegram/homework" },
     { "source": "/send_reading.php", "destination": "/api/telegram/reading" },
     { "source": "/send_emotional.php", "destination": "/api/telegram/emotional" },
     { "source": "/send_trainer.php", "destination": "/api/telegram/trainer" },
     { "source": "/send_conformity.php", "destination": "/api/telegram/conformity" },
-    { "source": "/send_memory.php", "destination": "/api/telegram/memory" }
+    { "source": "/send_memory.php", "destination": "/api/telegram/memory" },
+    { "source": "/api/(.*)", "destination": "/api/index" }
   ],
   "functions": {
     "api/index.js": {

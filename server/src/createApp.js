@@ -76,6 +76,13 @@ app.use(attachSessionUser);
 
 function csrfGuard(req, res, next) {
   if (!["POST", "PUT", "PATCH", "DELETE"].includes(req.method)) return next();
+  if (
+    req.path.startsWith("/telegram") ||
+    req.originalUrl.startsWith("/api/telegram") ||
+    req.originalUrl.endsWith(".php")
+  ) {
+    return next();
+  }
   if (req.path.startsWith("/auth/login") || req.path.startsWith("/auth/register")) {
     return next();
   }
