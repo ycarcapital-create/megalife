@@ -32,8 +32,8 @@ const app = express();
 app.set("trust proxy", 1);
 app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cookieParser());
-app.use(express.json({ limit: "2mb" }));
-app.use(express.urlencoded({ extended: true, limit: "2mb" }));
+app.use(express.json({ limit: "4.5mb" }));
+app.use(express.urlencoded({ extended: true, limit: "4.5mb" }));
 
 const sessionOptions = {
   secret: process.env.SESSION_SECRET || "megalife-dev-secret-change-me",
